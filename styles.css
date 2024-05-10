@@ -1,80 +1,58 @@
 /* styles.css */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
     background-color: #f4f4f4;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
+.date {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(35% - 12px); /* Adjusting width to fit in line */
 }
 
-main {
-    flex: 1;
-    padding: 20px;
+.delete-btn, #addStayPeriod {
+    font-size: 16px;
+    padding: 10px 12px; /* Smaller padding */
+    width: auto; /* Auto width for icon buttons */
+    background-color: transparent;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header, footer {
-    background-color: #007BFF;
+#calculate {
+    padding: 12px 25px;
+    background-color: #007BFF; /* Bright blue to stand out */
     color: white;
-    padding: 15px 20px;
-    text-align: center;
-    width: 100%;
-}
-
-header h1, footer p {
-    margin: 0;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px; /* Extra spacing */
+    display: block; /* Ensure it takes full width available */
 }
 
 .date-range {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 
-.date {
-    margin-right: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.delete-btn {
-    padding: 10px 20px;
-    color: white;
-    background-color: red;
-    border: none;
-    border-radius: 5px;
-}
-
-#addStayPeriod, #calculate {
-    padding: 10px 20px;
-    margin-top: 20px;
-    width: calc(100% - 40px); /* Adjust width for padding */
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-#result {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 20px;
-    position: relative; /* Change to fixed if you need it always at the bottom */
-    bottom: 0;
+table {
     width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
 }

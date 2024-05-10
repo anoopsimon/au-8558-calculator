@@ -2,17 +2,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('stayPeriods');
     document.getElementById('addStayPeriod').addEventListener('click', function() {
         const newPeriod = form.firstElementChild.cloneNode(true);
-        newPeriod.querySelectorAll('input').forEach(input => input.value = '');
+        newPeriod.querySelectorAll('input').forEach(input => {
+            input.value = '';
+            addDateInputMask(input); // Reapply masks
+        });
         form.appendChild(newPeriod);
     });
 
-    // Event delegation for dynamically added delete buttons
     form.addEventListener('click', function(e) {
         if (e.target.classList.contains('delete-btn')) {
             e.target.closest('.date-range').remove();
         }
     });
-
     document.getElementById('calculate').addEventListener('click', function() {
         const periods = Array.from(document.querySelectorAll('.date-range'))
             .map(period => ({
@@ -29,15 +30,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const lastExitDate = periods[periods.length - 1].exit;
         const eighteenMonthsAgo = new Date(lastExitDate.getFullYear(), lastExitDate.getMonth() - 18, lastExitDate.getDate());
         let totalDaysInside = 0;
-        let resultsHtml = "<table><tr><th>Entry Date</th><th>Exit Date</th><th>Days Inside</th></tr>";
+        let resultsHtml = "<table><tr><th>Entry Date</th><th>Exit Date</th><th>Days Inside</th><th>Months Inside</th></tr>";
 
         periods.forEach(period => {
             if (period.exit > eighteenMonthsAgo) {
                 const effectiveEntry = period.entry < eighteenMonthsAgo ? eighteenMonthsAgo : period.entry;
                 const effectiveExit = period.exit;
                 const daysInside = Math.round((effectiveExit - effectiveEntry) / (1000 * 60 * 60 * 24) + 1);
+                const monthsInside = Math.round(daysInside / 30); // Approximate months
                 totalDaysInside += daysInside;
-                resultsHtml += `<tr><td>${formatDate(effectiveEntry)}</td><td>${formatDate(effectiveExit)}</td><td>${daysInside}</td></tr>`;
+                resultsHtml += `<tr><td>${formatDate(effectiveEntry)}</td><td>${formatDate(effectiveExit)}</td><td>${daysInside}</td><td>${monthsInside}</td></tr>`;
             }
         });
 
@@ -47,16 +49,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const resultText = totalDaysInside > 365 ? "Overstay" : "Legal Stay";
         document.getElementById('result').textContent = `${resultText}. Total days inside: ${Math.round(totalDaysInside)}. Calculation starts from: ${formatDate(eighteenMonthsAgo)}`;
     });
-
-    function convertDate(dateStr) {
-        const [day, month, year] = dateStr.split('/');
-        return new Date(year, month - 1, day); // Adjust month index (0-based)
-    }
-
-    function formatDate(date) {
-        return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-    }
 });
+
+function convertDate(dateStr) {
+    const [day, month, year] = dateStr.split('/');
+    return new Date(year, month - 1, day); // Adjust month index (0-based)
+}
+
+function formatDate(date) {
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+}
 
 function addDateInputMask(inputElement) {
     inputElement.addEventListener('input', function(e) {
