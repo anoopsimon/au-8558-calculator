@@ -1,0 +1,80 @@
+/* styles.css */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header, footer {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    width: 100%;
+}
+
+header h1, footer p {
+    margin: 0;
+}
+
+.date-range {
+    margin-bottom: 10px;
+}
+
+.date {
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.delete-btn {
+    padding: 10px 20px;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+}
+
+#addStayPeriod, #calculate {
+    padding: 10px 20px;
+    margin-top: 20px;
+    width: calc(100% - 40px); /* Adjust width for padding */
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 20px;
+    position: relative; /* Change to fixed if you need it always at the bottom */
+    bottom: 0;
+    width: 100%;
+}

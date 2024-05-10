@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<title>AU-8558 Calculator</title>
+</head>
+<body>
+<header>
+    <h1>AU-8558 Stay Period Calculator</h1>
+    <h2>Welcome to the AU-8558 Calculator, the tool designed to help you track your stay duration in Australia, ensuring compliance with non-resident rules.</h2>
+</header>
+<main>
+    <form id="stayPeriods">
+        <div class="date-range">
+            <input type="text" class="date entry" placeholder="Entry Date (dd/mm/yyyy)">
+            <input type="text" class="date exit" placeholder="Exit Date (dd/mm/yyyy)">
+            <button type="button" class="delete-btn">Delete Entry</button>
+        </div>
+    </form>
+    <button type="button" id="addStayPeriod">Add Stay Period</button>
+    <button type="button" id="calculate">Calculate</button>
+    <div id="result"></div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
