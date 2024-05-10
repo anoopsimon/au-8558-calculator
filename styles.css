@@ -56,3 +56,34 @@ th, td {
 th {
     background-color: #f0f0f0;
 }
+/* styles.css */
+.result {
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 0 8px 0;
+}
+
+.legal-stay {
+    background-color: green;
+    box-shadow: 0 0 8px green; /* Green glow */
+}
+
+.overstay {
+    background-color: red;
+    box-shadow: 0 0 8px red; /* Red glow */
+}
+
+.ad {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.adsbygoogle {
+    max-width: 100%;
+    height: auto;
+}
