@@ -1,0 +1,49 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Test Results</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.5;
+                    margin: 20px;
+                    padding: 20px;
+                    background-color: #f7f7f7;
+                }
+                h1 {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+                ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+                li {
+                    margin-bottom: 5px;
+                    padding: 10px;
+                }
+                .passed {
+                    background-color: #dff0d8;
+                    color: #3c763d;
+                }
+                .failed {
+                    background-color: #f2dede;
+                    color: #a94442;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Test Results</h1>
+            <ul>
+                <li class="passed">should calculate stay period correctly for full month</li><li class="passed">should include both entry and exit dates</li><li class="passed">should return 0 for same entry and exit dates</li><li class="passed">should calculate stay period correctly for one day</li><li class="passed">should calculate stay period correctly for half a month</li><li class="passed">should calculate stay period correctly for two months and three days</li><li class="passed">should calculate stay period correctly for a leap year</li><li class="passed">should calculate stay period correctly for different years</li><li class="passed">should calculate stay period correctly for two different years</li><li class="passed">should calculate stay period correctly for two different years and a leap year</li><li class="passed">should calculate stay period correctly for two different years and a leap year</li><li class="failed">should handle exit date with time</li><li class="passed">should handle entry and exit dates with time</li><li class="failed">should handle entry date with time</li><li class="passed">should handle entry and exit dates with milliseconds precision</li><li class="passed">should return negative value if exit date is before entry date</li><li class="passed">should handle exit date before entry date with different years</li><li class="passed">should handle negative stay period with milliseconds precision</li>
+            </ul>
+            <h2>Summary</h2>
+            <p>18 tests total</p>
+            <p>16 tests passed</p>
+            <p>2 tests failed</p>
+        </body>
+        </html>
+    
