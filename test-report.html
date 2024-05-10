@@ -17,6 +17,7 @@
                 h1 {
                     font-size: 24px;
                     margin-bottom: 20px;
+                    text-align: center;
                 }
                 ul {
                     list-style-type: none;
@@ -49,9 +50,6 @@
         </head>
         <body>
             <h1>Test Results</h1>
-            <ul>
-                <li class="passed">should calculate stay period correctly for full month</li><li class="passed">should include both entry and exit dates</li><li class="passed">should return 0 for same entry and exit dates</li><li class="passed">should calculate stay period correctly for one day</li><li class="passed">should calculate stay period correctly for half a month</li><li class="passed">should calculate stay period correctly for two months and three days</li><li class="passed">should calculate stay period correctly for a leap year</li><li class="passed">should calculate stay period correctly for different years</li><li class="passed">should calculate stay period correctly for two different years</li><li class="passed">should calculate stay period correctly for two different years and a leap year</li><li class="passed">should calculate stay period correctly for two different years and a leap year</li><li class="failed">should handle exit date with time</li><li class="passed">should handle entry and exit dates with time</li><li class="failed">should handle entry date with time</li><li class="passed">should handle entry and exit dates with milliseconds precision</li><li class="passed">should return negative value if exit date is before entry date</li><li class="passed">should handle exit date before entry date with different years</li><li class="passed">should handle negative stay period with milliseconds precision</li>
-            </ul>
             <div class="summary">
                 <h2>Summary</h2>
                 <p>18 tests total</p>
@@ -59,6 +57,9 @@
                 <p>2 tests failed</p>
                 <canvas id="summaryChart" width="200" height="200"></canvas>
             </div>
+            <ul>
+                <li class="passed">should calculate stay period correctly for full month</li><li class="passed">should include both entry and exit dates</li><li class="passed">should return 0 for same entry and exit dates</li><li class="passed">should calculate stay period correctly for one day</li><li class="passed">should calculate stay period correctly for half a month</li><li class="passed">should calculate stay period correctly for two months and three days</li><li class="passed">should calculate stay period correctly for a leap year</li><li class="passed">should calculate stay period correctly for different years</li><li class="passed">should calculate stay period correctly for two different years</li><li class="passed">should calculate stay period correctly for two different years and a leap year</li><li class="passed">should calculate stay period correctly for two different years and a leap year</li><li class="failed">should handle exit date with time</li><li class="passed">should handle entry and exit dates with time</li><li class="failed">should handle entry date with time</li><li class="passed">should handle entry and exit dates with milliseconds precision</li><li class="passed">should return negative value if exit date is before entry date</li><li class="passed">should handle exit date before entry date with different years</li><li class="passed">should handle negative stay period with milliseconds precision</li>
+            </ul>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
             <script>
                 var ctx = document.getElementById('summaryChart').getContext('2d');

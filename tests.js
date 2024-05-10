@@ -79,6 +79,7 @@ function generateHTMLReport(results) {
                 h1 {
                     font-size: 24px;
                     margin-bottom: 20px;
+                    text-align: center;
                 }
                 ul {
                     list-style-type: none;
@@ -111,9 +112,6 @@ function generateHTMLReport(results) {
         </head>
         <body>
             <h1>Test Results</h1>
-            <ul>
-                ${results.map(result => `<li class="${result.passed ? 'passed' : 'failed'}">${result.message}</li>`).join('')}
-            </ul>
             <div class="summary">
                 <h2>Summary</h2>
                 <p>${totalTests} tests total</p>
@@ -121,6 +119,9 @@ function generateHTMLReport(results) {
                 <p>${failedTests} tests failed</p>
                 <canvas id="summaryChart" width="200" height="200"></canvas>
             </div>
+            <ul>
+                ${results.map(result => `<li class="${result.passed ? 'passed' : 'failed'}">${result.message}</li>`).join('')}
+            </ul>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
             <script>
                 var ctx = document.getElementById('summaryChart').getContext('2d');

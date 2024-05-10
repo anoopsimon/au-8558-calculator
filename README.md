@@ -15,7 +15,7 @@ This tool is intended to assist travelers, immigration consultants, and legal pr
 ## Demo
 [Click here to view the video](static/demo.mp4)
 
-
+[Unit Test Results](test-report.html)
 
 ## How to Use the Site
 1. **Enter Dates**: Start by entering the entry and exit dates for your first period of stay in the provided fields. Dates should be entered in the format `DD/MM/YYYY`.
