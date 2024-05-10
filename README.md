@@ -12,6 +12,7 @@ This tool is intended to assist travelers, immigration consultants, and legal pr
 - **Calculate Stay**: With a simple click, the calculator sums up all the days from the entered periods and evaluates whether the stay is legal or constitutes an overstay.
 - **Mobile-First Design**: The site is designed to be accessible and fully functional on mobile devices, ensuring a good user experience across all platforms.
 
+## Demo
 <video width="320" height="240" controls>
   <source src="static/demo.mp4" type="video/mp4">
 </video>
