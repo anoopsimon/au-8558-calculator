@@ -13,9 +13,9 @@ This tool is intended to assist travelers, immigration consultants, and legal pr
 - **Mobile-First Design**: The site is designed to be accessible and fully functional on mobile devices, ensuring a good user experience across all platforms.
 
 ## Demo
-<video width="320" height="240" controls>
-  <source src="static/demo.mp4" type="video/mp4">
-</video>
+[Click here to view the video](static/demo.mp4)
+
+
 
 ## How to Use the Site
 1. **Enter Dates**: Start by entering the entry and exit dates for your first period of stay in the provided fields. Dates should be entered in the format `DD/MM/YYYY`.
