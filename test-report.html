@@ -5,6 +5,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Test Results</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
             <style>
                 body {
                     font-family: Arial, sans-serif;
@@ -33,6 +34,17 @@
                     background-color: #f2dede;
                     color: #a94442;
                 }
+                .summary {
+                    margin-top: 40px;
+                    text-align: center;
+                }
+                canvas {
+                    margin-top: 20px;
+                    max-width: 400px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    display: block;
+                }
             </style>
         </head>
         <body>
@@ -40,10 +52,31 @@
             <ul>
                 <li class="passed">should calculate stay period correctly for full month</li><li class="passed">should include both entry and exit dates</li><li class="passed">should return 0 for same entry and exit dates</li><li class="passed">should calculate stay period correctly for one day</li><li class="passed">should calculate stay period correctly for half a month</li><li class="passed">should calculate stay period correctly for two months and three days</li><li class="passed">should calculate stay period correctly for a leap year</li><li class="passed">should calculate stay period correctly for different years</li><li class="passed">should calculate stay period correctly for two different years</li><li class="passed">should calculate stay period correctly for two different years and a leap year</li><li class="passed">should calculate stay period correctly for two different years and a leap year</li><li class="failed">should handle exit date with time</li><li class="passed">should handle entry and exit dates with time</li><li class="failed">should handle entry date with time</li><li class="passed">should handle entry and exit dates with milliseconds precision</li><li class="passed">should return negative value if exit date is before entry date</li><li class="passed">should handle exit date before entry date with different years</li><li class="passed">should handle negative stay period with milliseconds precision</li>
             </ul>
-            <h2>Summary</h2>
-            <p>18 tests total</p>
-            <p>16 tests passed</p>
-            <p>2 tests failed</p>
+            <div class="summary">
+                <h2>Summary</h2>
+                <p>18 tests total</p>
+                <p>16 tests passed</p>
+                <p>2 tests failed</p>
+                <canvas id="summaryChart" width="200" height="200"></canvas>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+            <script>
+                var ctx = document.getElementById('summaryChart').getContext('2d');
+                var summaryChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Passed', 'Failed'],
+                        datasets: [{
+                            label: 'Test Results',
+                            data: [16, 2],
+                            backgroundColor: [
+                                '#5cb85c',
+                                '#d9534f'
+                            ]
+                        }]
+                    }
+                });
+            </script>
         </body>
         </html>
     

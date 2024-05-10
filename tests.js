@@ -56,6 +56,10 @@ function runTests() {
 
 // Function to generate HTML report
 function generateHTMLReport(results) {
+    const totalTests = results.length;
+    const passedTests = results.filter(result => result.passed).length;
+    const failedTests = totalTests - passedTests;
+
     const htmlContent = `
         <!DOCTYPE html>
         <html lang="en">
@@ -63,6 +67,7 @@ function generateHTMLReport(results) {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Test Results</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
             <style>
                 body {
                     font-family: Arial, sans-serif;
@@ -91,6 +96,17 @@ function generateHTMLReport(results) {
                     background-color: #f2dede;
                     color: #a94442;
                 }
+                .summary {
+                    margin-top: 40px;
+                    text-align: center;
+                }
+                canvas {
+                    margin-top: 20px;
+                    max-width: 400px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    display: block;
+                }
             </style>
         </head>
         <body>
@@ -98,10 +114,31 @@ function generateHTMLReport(results) {
             <ul>
                 ${results.map(result => `<li class="${result.passed ? 'passed' : 'failed'}">${result.message}</li>`).join('')}
             </ul>
-            <h2>Summary</h2>
-            <p>${results.length} tests total</p>
-            <p>${results.filter(result => result.passed).length} tests passed</p>
-            <p>${results.filter(result => !result.passed).length} tests failed</p>
+            <div class="summary">
+                <h2>Summary</h2>
+                <p>${totalTests} tests total</p>
+                <p>${passedTests} tests passed</p>
+                <p>${failedTests} tests failed</p>
+                <canvas id="summaryChart" width="200" height="200"></canvas>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+            <script>
+                var ctx = document.getElementById('summaryChart').getContext('2d');
+                var summaryChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Passed', 'Failed'],
+                        datasets: [{
+                            label: 'Test Results',
+                            data: [${passedTests}, ${failedTests}],
+                            backgroundColor: [
+                                '#5cb85c',
+                                '#d9534f'
+                            ]
+                        }]
+                    }
+                });
+            </script>
         </body>
         </html>
     `;
